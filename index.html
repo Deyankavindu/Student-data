@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Student Record</title>
+</head>
+<body>
+
+<h2>Get Student Record</h2>
+
+<label for="studentId">Enter Student ID:</label>
+<input type="text" id="studentId" placeholder="Enter Student ID">
+<button onclick="getStudentRecord()">Get Record</button>
+<br>
+<div id="result"></div>
+
+<script>
+function getStudentRecord() {
+    // Get the student ID from the textbox
+    var studentId = document.getElementById("studentId").value;
+
+    // Check if the input is not empty
+    if (studentId.trim() !== "") {
+        // Create a new XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+
+        // Define the AJAX request
+        xhr.open("GET", "getStudent.php?sid=" + encodeURIComponent(studentId), true);
+
+        // Set up the callback function to handle the response
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Update the result div with the response
+                document.getElementById("result").innerHTML = xhr.responseText;
+            }
+        };
+
+        // Send the request
+        xhr.send();
+    } else {
+        // Display an error message if the input is empty
+        document.getElementById("result").innerHTML = "Please enter a valid student ID.";
+    }
+}
+</script>
+
+</body>
+</html>
