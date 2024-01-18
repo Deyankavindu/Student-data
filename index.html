@@ -13,6 +13,7 @@
 <input type="text" id="studentId" placeholder="Enter Student ID">
 <button onclick="getStudentRecord()">Get Record</button>
 <br>
+<br>
 <div id="result"></div>
 
 <script>
@@ -40,6 +41,7 @@ function getStudentRecord() {
         xhr.send();
     } else {
         // Display an error message if the input is empty
+        
         document.getElementById("result").innerHTML = "Please enter a valid student ID.";
     }
 }

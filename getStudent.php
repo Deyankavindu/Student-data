@@ -4,7 +4,7 @@
 $studentRecordsJson = '[
   {
     "sid": 1,
-    "name": "John Doe",
+    "name": "Deyan Kavindu",
     "age": 20,
     "address": "123 Main Street, Cityville",
     "cgpa": 3.5
